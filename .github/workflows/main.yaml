@@ -1,0 +1,25 @@
+name: Build wpbl
+on:
+- push
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+      - name: Build
+        run: cargo build --release
+      - name: Build DB
+        run: ./target/release/wpblsync --db wpbl.db
+      - name: Upload DB
+        uses: actions/upload-artifact@v2
+        with:
+          name: wpbl-db
+          path: wpbl.db
