@@ -98,6 +98,9 @@ async fn main() -> Result<()> {
       if let (Some(rangestart), Some(rangeend)) = (block.rangestart, block.rangeend) {
         let rangestart = encode_ipaddr(rangestart);
         let rangeend = encode_ipaddr(rangeend);
+        if rangestart == "00000000" {
+          continue;
+        }
         conn.execute("insert or ignore into wpbl (`id`, `timestamp`, `expiry`, `rangestart`, `rangeend`) values(?, ?, ?, ?, ?)", rusqlite::params![
           block.id,
           block.timestamp,
