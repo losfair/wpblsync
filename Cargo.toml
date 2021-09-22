@@ -2,6 +2,7 @@
 name = "wpblsync"
 version = "0.1.0"
 edition = "2018"
+description = "Incrementally synchronize Wikipedia's block list to a local SQLite3 database."
 authors = ["Heyang Zhou <heyang.zhou@icloud.com>"]
 license = "MIT"
 repository = "https://github.com/losfair/wpblsync"
