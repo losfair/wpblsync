@@ -80,7 +80,6 @@ async fn main() -> Result<()> {
       ("bkdir".into(), "newer".into()),
       ("bklimit".into(), "max".into()),
       ("bkprop".into(), "id|timestamp|expiry|range".into()),
-      ("bkshow".into(), "ip".into()),
       ("bkstart".into(), max_ts.clone()),
     ];
     if let Some(x) = bkcontinue.clone() {
